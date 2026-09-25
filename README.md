@@ -4,7 +4,6 @@
 
 **Door Marwan Mrait, beëdigd vertaler Arabisch-Nederlands, Al-Bayaan Vertalingen (Eindhoven)**
 
-\---
 
 ## Inhoud
 
