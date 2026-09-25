@@ -2,6 +2,9 @@
 
 *Van losse prompts naar een AI-agent die mijn hele bedrijfsproces orkestreert.*
 
+**Door Marwan Mrait, beëdigd vertaler Arabisch-Nederlands, Al-Bayaan Vertalingen (Eindhoven)**
+
+---
 
 ## Inhoud
 
@@ -17,7 +20,7 @@
 * [Begin vandaag](#begin-vandaag)
 * [Woordenlijst](#woordenlijst)
 
-\---
+---
 
 ## Een dinsdagochtend, vóór Ibo
 
@@ -31,10 +34,10 @@ Om 12:30 uur heb ik nog geen woord vertaald.
 
 Dat was mijn werkdag. Niet omdat het vertalen zo lang duurde, maar omdat alles eromheen dat deed. Ewa toen besloot ik:
 
-> \[!IMPORTANT]
-> \*\*Ik wil vertalen, niet administreren.\*\*
+> [!IMPORTANT]
+> **Ik wil vertalen, niet administreren.**
 
-\---
+---
 
 ## Mijn routine vóór Ibo
 
@@ -43,8 +46,6 @@ Ik ben beëdigd vertaler Arabisch-Nederlands, ingeschreven in het Register beëd
 In mijn vak is precisie alles. Eén verkeerd gespelde naam of een fout omgerekende datum uit de islamitische kalender, en iemands verblijfsaanvraag loopt vertraging op. Mijn stempel en handtekening onder een vertaling betekenen: *hier sta ik persoonlijk voor in.*
 
 Bijna al mijn klantcontact loopt via WhatsApp. Elke dag komen er 4 tot 8 nieuwe aanvragen binnen, in het Nederlands, in standaardarabisch of in dialect: Syrisch, Iraaks, Egyptisch, Marokkaans. Ik antwoord iedereen in zijn eigen taal en dialect. Dat is persoonlijk, en klanten waarderen het enorm. Maar het kost ook tijd.
-
-
 
 Zo liep één opdracht, van eerste bericht tot brievenbus:
 
@@ -60,13 +61,13 @@ Zo liep één opdracht, van eerste bericht tot brievenbus:
 10. Printen, stempelen, ondertekenen.
 11. Het postadres opvragen en controleren.
 12. Een PostNL-label kopen en de post versturen.
-13. De track \& trace-link naar de klant sturen.
+13. De track & trace-link naar de klant sturen.
 
 En dan was er nog de rest: de website bijhouden, social media, Google Ads-campagnes die ik nauwelijks begreep, en een zoekpositie in Google die ik alleen zag als ik er zelf op zocht.
 
 Van die dertien stappen was er één echt vertaalwerk. De rest noemen we in de softwarewereld **overhead**: werk dat moet gebeuren, maar geen waarde toevoegt aan je vakmanschap. Bij mij kostte dat zo'n 28 uur per week.
 
-\---
+---
 
 ## Fase 1: losse prompts
 
@@ -78,50 +79,34 @@ Zoals zoveel mensen begon ik met ChatGPT-achtige assistenten. Een prompt hier, e
 
 Het hielp echt, al controleerde ik elke vertaalde zin natuurlijk zelf. Maar ik merkte al snel iets: **de AI deed losse taken, en ik was nog steeds de lijm ertussen.** Ik kopieerde, plakte, downloadde, hernoemde en controleerde. De assistent was slim, maar had geen geheugen van mijn proces, geen toegang tot mijn systemen, en geen idee wat de volgende stap was. En het belangrijkste van alles; de documenten waar ik mee werk zijn zeer privacy gevoelig en kunnen absoluut niet in een chatbot gezet worden.
 
-> \[!NOTE]
-> Losse prompts maken taken sneller. Een \*\*agent\*\* maakt processen sneller. Dat verschil is alles.
+> [!NOTE]
+> Losse prompts maken taken sneller. Een **agent** maakt processen sneller. Dat verschil is alles.
 
-
-
-\---
+---
 
 ## Fase 2: mijn eigen vertaal-app
 
-
-
 De volgende stap was een eigen webapplicatie in Python (Flask). Ik sleep er documenten in, kies de taalrichting en een sjabloon, en de app levert een volledig opgemaakt Word-bestand op: de vertaling, de beëdigingsverklaring, mijn stempel en handtekening, en Arabisch en Nederlands netjes in de juiste leesrichting.
-
-
 
 Het vertalen zelf ging daardoor tien keer sneller. Belangrijk: de app maakt een eerste versie, geen eindproduct. Ik lees en controleer nog steeds elke vertaling zelf, regel voor regel, met extra aandacht voor namen, datums en officiële termen. Pas daarna zet ik mijn stempel en handtekening.
 
-
-
-\### Vertrouwelijkheid by design
-
-
+### Vertrouwelijkheid by design
 
 De documenten die ik vertaal, horen tot de meest gevoelige die er zijn: paspoorten, geboorteakten, medische verslagen, chatgesprekken voor een rechtszaak. Privacy was daarom geen bijzaak, maar een ontwerpeis vanaf de eerste regel code.
 
+- **Lokaal opgeslagen.** De app draait op mijn eigen laptop, niet in de cloud. Dossiers staan in lokale mappen, niet in een online opslagdienst of in een chatprogramma.
 
+- **Alleen verwerkt, nooit bewaard.** Voor het vertalen gaat een document via een versleutelde verbinding (TLS) naar de API van een taalmodel. Dat is de zakelijke API-toegang, waarbij de aanbieder mijn gegevens volgens de voorwaarden niet gebruikt om zijn modellen te trainen. Het resultaat komt terug naar mijn laptop, en daar blijft het.
 
-\- \*\*Lokaal opgeslagen.\*\* De app draait op mijn eigen laptop, niet in de cloud. Dossiers staan in lokale mappen, niet in een online opslagdienst of in een chatprogramma.
+- **Dataminimalisatie.** Ibo stuurt alleen wat nodig is voor de taak. In Slack verschijnen bestandsnamen en statusmeldingen, nooit de documenten zelf.
 
-\- \*\*Alleen verwerkt, nooit bewaard.\*\* Voor het vertalen gaat een document via een versleutelde verbinding (TLS) naar de API van een taalmodel. Dat is de zakelijke API-toegang, waarbij de aanbieder mijn gegevens volgens de voorwaarden niet gebruikt om zijn modellen te trainen. Het resultaat komt terug naar mijn laptop, en daar blijft het.
+- **Menselijke eindcontrole.** Geen enkele vertaling verlaat mijn bureau zonder dat ik hem heb gelezen, gecontroleerd en ondertekend.
 
-\- \*\*Dataminimalisatie.\*\* Ibo stuurt alleen wat nodig is voor de taak. In Slack verschijnen bestandsnamen en statusmeldingen, nooit de documenten zelf.
+- **AVG-proof vastgelegd.** Hoe ik met gegevens omga, staat openbaar in mijn privacyverklaring, inclusief welke diensten als verwerker optreden en hoe lang ik gegevens bewaar.
 
-\- \*\*Menselijke eindcontrole.\*\* Geen enkele vertaling verlaat mijn bureau zonder dat ik hem heb gelezen, gecontroleerd en ondertekend.
-
-\- \*\*AVG-proof vastgelegd.\*\* Hoe ik met gegevens omga, staat openbaar in mijn privacyverklaring, inclusief welke diensten als verwerker optreden en hoe lang ik gegevens bewaar.
-
-
-
-> \[!IMPORTANT]
+> [!IMPORTANT]
 
 > Als beëdigd vertaler heb ik een wettelijke geheimhoudingsplicht. Automatisering verandert daar niets aan: de techniek is zo ingericht dat die plicht altijd voorop staat.
-
-
 
 Maar de twaalf andere stappen? Die bleven precies hetzelfde. Mijn telefoon bleef trillen.
 
@@ -133,7 +118,7 @@ timeline
     Fase 3 : Ibo : Het hele proces georkestreerd : Ik keur goed, Ibo voert uit
 ```
 
-\---
+---
 
 ## Fase 3: Ibo
 
@@ -151,8 +136,8 @@ Ibo woont in Slack. Dat klinkt misschien vreemd voor een eenmanszaak, maar het i
 
 Als beëdigd vertaler blijf ik juridisch verantwoordelijk voor alles wat ik lever. Daarom werkt Ibo volgens het principe **human-in-the-loop**: de mens blijft in de lus. Ibo bereidt voor, ik keur goed. Alles wat geld kost of naar een klant gaat, gaat pas de deur uit na mijn klik.
 
-> \[!IMPORTANT]
-> Ibo neemt het werk \*rond\* mijn vertalingen over, niet mijn verantwoordelijkheid. Elke vertaling controleer en onderteken ik zelf.
+> [!IMPORTANT]
+> Ibo neemt het werk *rond* mijn vertalingen over, niet mijn verantwoordelijkheid. Elke vertaling controleer en onderteken ik zelf.
 
 ### Slack als controlecentrum
 
@@ -160,12 +145,12 @@ Als beëdigd vertaler blijf ik juridisch verantwoordelijk voor alles wat ik leve
 |-|-|
 |`#leads`|Elke klant een eigen thread. Berichten komen binnen, Ibo schrijft concept-antwoorden in de taal en het dialect van de klant.|
 |`#controle`|Na betaling: per document een akkoordvraag om te vertalen, en een melding zodra de vertaling klaar is.|
-|`#verzending`|Adrescontrole, PostNL-labels en track \& trace.|
+|`#verzending`|Adrescontrole, PostNL-labels en track & trace.|
 |`#marketing`|Dagelijkse en wekelijkse rapporten over advertenties en vindbaarheid, met verbetervoorstellen.|
 |`#kosten`|Wat de AI mij per dag, week en maand kost.|
 |`#systeem`|Starten, stoppen en statusmeldingen.|
 
-\---
+---
 
 ## Hoe Ibo werkt, proces voor proces
 
@@ -174,25 +159,25 @@ Als beëdigd vertaler blijf ik juridisch verantwoordelijk voor alles wat ik leve
 Zo loopt één opdracht nu, van eerste bericht tot brievenbus. De oranje vakken zijn de momenten waarop ik zelf iets doe, de blauwe doet Ibo.
 
 ```mermaid
-flowchart TB
-    subgraph R1\["① Contact en dossier"]
-        direction LR
-        A\["📱 Klant stuurt<br/>WhatsApp-bericht"] --> B\["🤖 Concept in taal<br/>en dialect"] --> C\["✅ Ik keur goed"] --> D\["📤 Ibo verstuurt"] --> E\["📄 Klant stuurt<br/>documenten"] --> F\["🗂️ Dossier en<br/>pagina-analyse"]
+flowchart LR
+    subgraph F1["① Contact en dossier"]
+        direction TB
+        A["📱 Klant stuurt een<br/>WhatsApp-bericht"] --> B["🤖 Ibo schrijft een<br/>concept-antwoord"] --> C["✅ Ik keur goed"] --> D["📄 Klant stuurt<br/>documenten"] --> E["🗂️ Ibo maakt<br/>het dossier"]
     end
-    subgraph R2\["② Betaling en vertaling"]
-        direction RL
-        G\["✅ Ik keur prijs<br/>en levertijd goed"] --> H\["💳 Stripe-<br/>betaallink"] --> I\["🔔 Betaling<br/>via webhook"] --> J\["✅ Akkoord om<br/>te vertalen"] --> K\["⚙️ Vertaal-app<br/>klaargezet"] --> L\["✍️ Ik controleer<br/>en onderteken"]
+    subgraph F2["② Betaling en vertaling"]
+        direction TB
+        F["✅ Ik keur prijs<br/>en levertijd goed"] --> G["💳 Ibo stuurt<br/>de betaallink"] --> H["🔔 Klant betaalt"] --> I["⚙️ Ibo zet de<br/>vertaling klaar"] --> J["✍️ Ik controleer<br/>en onderteken"]
     end
-    subgraph R3\["③ Levering"]
-        direction LR
-        M\["📨 Klant keurt<br/>concept goed"] --> N\["📍 Adrescheck<br/>via BAG"] --> O\["✅ Ik bevestig<br/>het adres"] --> P\["🏷️ PostNL-label<br/>en printer"] --> Q\["📦 Track en trace<br/>en reviewverzoek"]
+    subgraph F3["③ Levering"]
+        direction TB
+        K["📨 Klant keurt<br/>het concept goed"] --> L["📍 Ibo controleert<br/>het adres"] --> M["✅ Ik bevestig<br/>het adres"] --> N["🏷️ Label wordt<br/>geprint"] --> O["📦 Track & trace<br/>naar de klant"]
     end
-    R1 --> R2 --> R3
+    F1 ==> F2 ==> F3
 
     classDef mens fill:#f59e0b,stroke:#b45309,color:#111
     classDef ibo fill:#dbeafe,stroke:#2563eb,color:#111
-    class C,G,J,L,O mens
-    class A,B,D,E,F,H,I,K,M,N,P,Q ibo
+    class C,F,J,M mens
+    class A,B,D,E,G,H,I,K,L,N,O ibo
 ```
 
 ### Klantcontact via WhatsApp
@@ -208,7 +193,7 @@ flowchart TB
 * Hij **leert van mijn aanpassingen**: elke correctie die ik maak, gebruikt hij als voorbeeld bij het volgende concept.
 * Bij spraakberichten laat hij het antwoord aan mij over. Nieuwe klanten krijgen automatisch het label *Lead*.
 
-> \[!TIP]
+> [!TIP]
 > Ibo houdt bij hoe vaak ik zijn concepten ongewijzigd goedkeur, per soort bericht. Zo zie ik precies welke berichten hij al zelfstandig aankan.
 
 Zo ziet één klantvraag er van begin tot eind uit:
@@ -237,8 +222,8 @@ sequenceDiagram
 
 **Details:**
 
-* De map krijgt de naam `jjjjmmdd\_Documentsoort\_12345`, met de laatste vijf cijfers van het telefoonnummer.
-* Bij elkaar horende pagina's, zoals zes foto's van één familieboekje, worden gegroepeerd en op volgorde gezet: `Familieboekje\_1` tot en met `Familieboekje\_6`.
+* De map krijgt de naam `jjjjmmdd_Documentsoort_12345`, met de laatste vijf cijfers van het telefoonnummer.
+* Bij elkaar horende pagina's, zoals zes foto's van één familieboekje, worden gegroepeerd en op volgorde gezet: `Familieboekje_1` tot en met `Familieboekje_6`.
 * Dubbele bestanden herkent hij aan hun digitale vingerafdruk (**hash**), ook als ze een andere naam hebben.
 
 ### Prijs en betaling
@@ -267,7 +252,7 @@ sequenceDiagram
 
 ### Verzending
 
-**Wat Ibo doet:** van adres tot track \& trace, volledig geregeld.
+**Wat Ibo doet:** van adres tot track & trace, volledig geregeld.
 
 **Hoe hij het doet:** Ibo zoekt het adres in het WhatsApp-gesprek en controleert het tegen de **BAG**, de officiële adresdatabase van de Nederlandse overheid. Na mijn bevestiging maakt hij via de **PostNL API** een label voor een brievenbuspakje, zet het op het eerstvolgende vrije etiket van mijn A4-etiketvel en stuurt het naar de printer.
 
@@ -275,7 +260,7 @@ sequenceDiagram
 
 * Ibo onthoudt welk etiket op het vel het volgende vrije is, dus een half gebruikt vel gaat gewoon terug in de printer.
 * Elke klant komt in een adresboek, zodat een volgende opdracht nog sneller gaat.
-* Na afgifte bij PostNL krijgt de klant de track \& trace-link en een vriendelijk verzoek om een Google-review.
+* Na afgifte bij PostNL krijgt de klant de track & trace-link en een vriendelijk verzoek om een Google-review.
 
 ### Marketing: Google Ads en Search Console
 
@@ -329,9 +314,7 @@ sequenceDiagram
 * Elke actie is **idempotent**: twee keer op dezelfde knop drukken doet niets dubbel.
 * Met één commando in `#systeem` start of stop ik alles.
 
-\---
-
-\---
+---
 
 ## De architectuur in één plaatje
 
@@ -341,29 +324,29 @@ Ibo is de **orchestration layer**: de dirigent die alle systemen aanstuurt. Zo z
 flowchart TB
     IBO(("🤖 Ibo<br/>orchestration layer"))
 
-    subgraph COM\["💬 Communicatie"]
+    subgraph COM["💬 Communicatie"]
         direction TB
-        WA\["WhatsApp Cloud API<br/>(Coexistence)"] \~\~\~ SL\["Slack"]
+        WA["WhatsApp Cloud API<br/>(Coexistence)"] ~~~ SL["Slack"]
     end
-    subgraph PAY\["💳 Betalen"]
+    subgraph PAY["💳 Betalen"]
         direction TB
-        ST\["Stripe"]
+        ST["Stripe"]
     end
-    subgraph PROD\["✍️ Productie"]
+    subgraph PROD["✍️ Productie"]
         direction TB
-        APP\["Vertaal-app<br/>(Python / Flask)"] \~\~\~ DOS\["Dossiermappen"]
+        APP["Vertaal-app<br/>(Python / Flask)"] ~~~ DOS["Dossiermappen"]
     end
-    subgraph LOG\["📦 Logistiek"]
+    subgraph LOG["📦 Logistiek"]
         direction TB
-        PN\["PostNL API"] \~\~\~ BAG\["BAG-adresdatabase"] \~\~\~ PR\["Printer"]
+        PN["PostNL API"] ~~~ BAG["BAG-adresdatabase"] ~~~ PR["Printer"]
     end
-    subgraph MKT\["📈 Marketing"]
+    subgraph MKT["📈 Marketing"]
         direction TB
-        GA\["Google Ads API"] \~\~\~ GSC\["Search Console API"] \~\~\~ VC\["Vercel (website)"] \~\~\~ SOC\["Social media"]
+        GA["Google Ads API"] ~~~ GSC["Search Console API"] ~~~ VC["Vercel (website)"] ~~~ SOC["Social media"]
     end
-    subgraph AI\["🧠 AI"]
+    subgraph AI["🧠 AI"]
         direction TB
-        LLM\["Taalmodellen<br/>(LLM-routing)"] \~\~\~ KB\["Kennisbank"]
+        LLM["Taalmodellen<br/>(LLM-routing)"] ~~~ KB["Kennisbank"]
     end
 
     IBO --> COM
@@ -377,7 +360,7 @@ flowchart TB
     class IBO kern
 ```
 
-\---
+---
 
 ## Wat het me oplevert
 
@@ -403,14 +386,14 @@ flowchart TB
 |✍️ Vertalen, controleren, ondertekenen|👤 Ik|👤 Ik, met mijn vertaal-app|
 |📍 Adres opvragen en controleren|👤 Ik|🤖 Ibo, ik bevestig|
 |🏷️ PostNL-label kopen en printen|👤 Ik|🤖 Ibo|
-|📦 Track \& trace versturen|👤 Ik|🤖 Ibo|
+|📦 Track & trace versturen|👤 Ik|🤖 Ibo|
 |📈 Advertenties bijhouden|👤 Ik (nauwelijks)|🤖 Ibo, ik keur acties goed|
 |🔎 Website en SEO|👤 Ik (nauwelijks)|🤖 Ibo, ik keur goed|
 |📱 Social media|👤 Ik (nauwelijks)|🤖 Ibo, ik keur goed|
 
-> \*"Ik ben niet minder bezig dan vroeger. Ik ben alleen eindelijk bezig met de dingen die ertoe doen."\*
+> *"Ik ben niet minder bezig dan vroeger. Ik ben alleen eindelijk bezig met de dingen die ertoe doen."*
 
-\---
+---
 
 ## Lessen die ik leerde
 
@@ -421,7 +404,7 @@ flowchart TB
 5. **Laat de agent leren van jou.** Elke correctie die ik maak, maakt Ibo beter. Na een paar weken schreef hij antwoorden die ik zelf had kunnen typen.
 6. **Houd de kosten zichtbaar.** Door het goedkoopste geschikte model te gebruiken en alles te meten, kost Ibo mij maar €8 à €9 per maand.
 
-\---
+---
 
 ## Begin vandaag
 
@@ -431,10 +414,10 @@ De ondernemers die nu beginnen, bouwen een voorsprong op die over twee jaar nauw
 
 **Je eerste stap, vandaag nog:** schrijf op papier alle stappen van één opdracht in jouw werk, van eerste contact tot afronding. Zet een sterretje bij elke stap die niets met je eigenlijke vak te maken heeft. Die sterretjes zijn je eerste automatiseringen.
 
-> \[!TIP]
+> [!TIP]
 > Je hoeft niet alles tegelijk te automatiseren. Kies de stap die je het vaakst doet en die je het minst leuk vindt. Begin daar.
 
-\---
+---
 
 ## Woordenlijst
 
@@ -460,6 +443,4 @@ De ondernemers die nu beginnen, bouwen een voorsprong op die over twee jaar nauw
 |**SEO**|Zoekmachineoptimalisatie: je website zo inrichten dat je hoger in Google komt.|
 |**Vision-AI**|Een taalmodel dat ook afbeeldingen en documenten kan lezen.|
 |**Webhook**|Een automatisch seintje van een ander systeem, bijvoorbeeld "er is betaald".|
-
-
 
