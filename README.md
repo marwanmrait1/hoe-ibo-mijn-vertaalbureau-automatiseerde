@@ -2,8 +2,6 @@
 
 *Van losse prompts naar een AI-agent die mijn hele bedrijfsproces orkestreert.*
 
-**Door Marwan Mrait, beëdigd vertaler Arabisch-Nederlands, Al-Bayaan Vertalingen (Eindhoven)**
-
 ---
 
 ## Inhoud
